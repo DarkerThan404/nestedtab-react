@@ -1,20 +1,25 @@
 import React from 'react';
 
 function HierarchyTable({ data }) {
+    const keys = data[0] ? Object.keys(data[0].data) : [];
+    console.log(keys)
   return (
     <table>
       <thead>
         <tr>
-          <th>Attribute</th>
-          <th>Value</th>
+          {keys.map((key) => (
+            <th key={key}>{key}</th>
+          ))}
         </tr>
       </thead>
       <tbody>
-        
-          <tr test>
-            <td>8</td>
-            <td>Lol</td>
-          </tr>
+        {data.map((item) => (
+            <tr key={item.data.ID}>
+                {keys.map((key) => (
+                    <td key={key}>{item.data[key]}</td>
+                ))}
+            </tr>
+        ))}
         
       </tbody>
     </table>
