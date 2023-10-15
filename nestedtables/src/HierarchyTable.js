@@ -42,6 +42,13 @@ function HierarchyTable({ data }) {
                 </td>
             </tr>
             )}
+            {showChildren[index] && item.children.has_secrete && item.children.has_secrete.records && (
+            <tr>
+                <td colSpan={keys.length + 1}>
+                <HierarchyTable data={item.children.has_secrete.records}/>
+                </td>
+            </tr>
+            )}
             </React.Fragment>
             
         ))}
