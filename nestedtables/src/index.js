@@ -23,10 +23,16 @@ function App() {
       } else if (item.children && Object.keys(item.children).length > 0) {
         if(item.children.has_nemesis) {
           item.children.has_nemesis.records = recursiveDelete(item.children.has_nemesis.records, itemToDelete);
+          if (item.children.has_nemesis.records.length === 0) {
+            delete item.children.has_nemesis;
+          }
         }
 
         if(item.children.has_secrete) {
           item.children.has_secrete.records = recursiveDelete(item.children.has_secrete.records, itemToDelete);
+          if (item.children.has_secrete.records.length === 0) {
+            delete item.children.has_secrete;
+          }
         }
       }
       return true;
