@@ -51,14 +51,14 @@ function HierarchyTable({ data , onDelete}) {
             {showChildren[index] && item.children.has_nemesis && item.children.has_nemesis.records && (
             <tr>
                 <td colSpan={keys.length + 1}>
-                <HierarchyTable data={item.children.has_nemesis.records}/>
+                <HierarchyTable data={item.children.has_nemesis.records} onDelete={onDelete}/>
                 </td>
             </tr>
             )}
             {showChildren[index] && item.children.has_secrete && item.children.has_secrete.records && (
             <tr>
                 <td colSpan={keys.length + 1}>
-                <HierarchyTable data={item.children.has_secrete.records}/>
+                <HierarchyTable data={item.children.has_secrete.records} onDelete={onDelete}/>
                 </td>
             </tr>
             )}
